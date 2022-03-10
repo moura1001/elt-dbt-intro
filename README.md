@@ -23,3 +23,7 @@ or
 
 3) Execute:
 `dbt run --profiles-dir .`
+
+## Screenshots
+
+![Transformation](./screenshots/transformation.png)
