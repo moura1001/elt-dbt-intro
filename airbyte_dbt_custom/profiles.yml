@@ -3,7 +3,7 @@ airbyte_dbt_custom:
   outputs:
     dev:
       type: postgres
-      host: localhost
+      host: postgresdb
       user: "{{ env_var('DBT_POSTGRES_USER') }}"
       pass: "{{ env_var('DBT_POSTGRES_PASSWORD') }}"
       port: 5432
@@ -13,7 +13,7 @@ airbyte_dbt_custom:
       keepalives_idle: 0
     prod:
       type: postgres
-      host: localhost
+      host: postgresdb
       user: "{{ env_var('DBT_POSTGRES_USER') }}"
       pass: "{{ env_var('DBT_POSTGRES_PASSWORD') }}"
       port: 5432
