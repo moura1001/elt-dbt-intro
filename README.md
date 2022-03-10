@@ -12,11 +12,14 @@
 
 2) Container:
 - Volumes
-`docker run -it --name dbt --mount src=dbt-data,dst=/usr/app/dbt --entrypoint /bin/bash dbt-postgres`
+`docker run -it --name dbt --network=elt-dbt-intro_default --mount src=dbt-data,dst=/usr/app/dbt --entrypoint /bin/bash dbt-postgres`
 
-`docker run -it --name dbt --mount type=volume,target=/usr/app/dbt --entrypoint /bin/bash dbt-postgres`
+`docker run -it --name dbt --network=elt-dbt-intro_default --mount type=volume,target=/usr/app/dbt --entrypoint /bin/bash dbt-postgres`
 
 or
 
 - Bind mount
-`docker run -it --name dbt --mount type=bind,src=/usr/app/dbt/ELT-dbt-intro,dst=/usr/app/dbt --entrypoint /bin/bash dbt-postgres`
+`docker run -it --name dbt --network=elt-dbt-intro_default --mount type=bind,src=/usr/app/dbt/ELT-dbt-intro,dst=/usr/app/dbt --entrypoint /bin/bash dbt-postgres`
+
+3) Execute:
+`dbt run --profiles-dir .`
