@@ -1,21 +1,20 @@
 
 version: 2
 
-models:
-  - name: my_first_dbt_model
-    description: "A starter dbt model"
-    columns:
-      - name: id
-        description: "The primary key for this table"
-        tests:
-          - unique
-          - not_null
+sources:
+  - name: pokemon_raw
+    database: "{{ env_var('DBT_POSTGRES_DATABASE') }}"
+    schema: "{{ env_var('DBT_POSTGRES_DB_SCHEMA') }}"
+    tables:
+      - name: pokemon
+      - name: pokemon_stats
+      - name: pokemon_stats_stat
 
-  - name: my_second_dbt_model
-    description: "A starter dbt model"
+models:
+  - name: strong_pokemon
+    description: "Pokémon dbt model"
     columns:
-      - name: id
-        description: "The primary key for this table"
+      - name: pokemon_name
         tests:
           - unique
           - not_null
